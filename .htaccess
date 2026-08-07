@@ -1,0 +1,21 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/barakaed/bot_folder"
+PassengerBaseURI "/"
+PassengerPython "/home/barakaed/virtualenv/bot_folder/3.9/bin/python"
+PassengerAppLogFile "/home/barakaed/bot_folder/logs/bot.log"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
+
+# === .env va maxfiy fayllarni web orqali ochishni taqiqlash ===
+<FilesMatch "(^\.env|\.env$|^\.|\.(env|ini|log|sh)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
